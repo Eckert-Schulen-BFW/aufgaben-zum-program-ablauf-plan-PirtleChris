@@ -1,8 +1,8 @@
 ﻿// ============================================================
 //  Aufgabe: Programmablaufplan – BMI-Rechner
 //  Fach:    C# Grundlagen
-//  Name:    [DEIN NAME HIER]
-//  Datum:   [DATUM HIER]
+//  Name:    [Pirtle Christopher]
+//  Datum:   [01.04.2026]
 // ============================================================
 //
 // AUFGABE 1 – Beantworte folgende Fragen hier als Kommentar:
@@ -28,17 +28,31 @@
 // ── Schritt 1: Programmtitel ausgeben ───────────────────────
 // Tipp: Nutze Console.WriteLine() für die Titelbox.
 // TODO: Ausgabe der Titelzeile (wie im Beispiel in der README)
-
+Console.WriteLine("----------- BMI Rechner -----------");
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine();
 
 // ── Schritt 2: Eingabe – Name ────────────────────────────────
 // TODO: Benutzernamen einlesen (string, kein TryParse nötig)
-
+Console.WriteLine("Bitte Namen eingaben!");
+Console.Write("Benutzername: ");
+string name = Console.ReadLine();
 
 // ── Schritt 3: Eingabe – Gewicht mit Validierung ─────────────
 // TODO: Gewicht als Text einlesen
 // TODO: Mit double.TryParse() in eine Zahl umwandeln
 // TODO: Falls ungültig → Fehlermeldung ausgeben und Programm beenden (return)
-
+Console.WriteLine("Bitte Gewicht in kg eingeben!");
+Console.Write("Gewicht: ");
+double gewicht;
+bool bGewicht = double.TryParse(Console.ReadLine(), out gewicht);
+if (!bGewicht)
+{
+    Console.WriteLine("Fehlermeldung, Programm endet");
+    Console.ReadKey();
+    return;
+}
 
 // ── Schritt 4: Eingabe – Größe mit Validierung ───────────────
 // TODO: Körpergröße als Text einlesen
@@ -46,13 +60,23 @@
 // TODO: Falls ungültig → Fehlermeldung ausgeben und Programm beenden (return)
 // TODO: Zusätzlich prüfen: Ist die Größe größer als 0?
 //       Falls nicht → eigene Fehlermeldung und Programm beenden (return)
-
+Console.WriteLine("Bitte Größe in meter eingeben!");
+Console.Write("Größe: ");
+double größe;
+bool bGröße = double.TryParse(Console.ReadLine(),out größe);
+if (!bGröße || größe < 0)
+{
+    Console.WriteLine("Fehlermeldung (Größe ungültig), Programm endet");
+    Console.ReadKey();
+    return;
+}
 
 // ── Schritt 5: BMI berechnen ─────────────────────────────────
 // Formel: BMI = Gewicht / (Größe * Größe)
 // TODO: BMI berechnen und in einer Variablen speichern
+double bmi = gewicht / (größe * größe);
 
-
+ 
 // ── Schritt 6: Kategorie bestimmen ───────────────────────────
 // TODO: Erstelle eine string-Variable "kategorie"
 // TODO: Bestimme die Kategorie über eine if-else-if-Kette:
@@ -63,8 +87,27 @@
 //
 // 💭 Denkfrage: Warum reicht bei "Normalgewicht" die Bedingung BMI < 25.0 aus,
 //               obwohl laut WHO-Tabelle auch BMI >= 18.5 gelten muss?
-
+string kategorie;
+if(bmi < 18.5)
+{
+    kategorie = "Untergewicht";
+}
+else if (bmi < 25.0)
+{
+    kategorie = "Normalgewicht";
+}
+else if (bmi < 30)
+{
+    kategorie = "Übergewicht";
+}
+else
+{
+    kategorie = "Starkes Übergewicht";
+}
 
 // ── Schritt 7: Ergebnis ausgeben ─────────────────────────────
 // TODO: Gib Name, BMI (auf 2 Dezimalstellen) und Kategorie formatiert aus
 // Tipp: Nutze z.B. $"{bmi:F2}" für 2 Nachkommastellen
+
+Console.WriteLine($"Der Benutzrt {name} hat einen BMI von {bmi:f2} und liegt in der Kategorie : {kategorie}!");
+Console.ReadKey();
