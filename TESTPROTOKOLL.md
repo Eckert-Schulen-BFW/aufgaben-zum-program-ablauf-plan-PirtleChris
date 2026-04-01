@@ -122,9 +122,9 @@ Führe alle Testfälle aus und notiere die tatsächliche Ausgabe deines Programm
 |----------|-----------|
 | TC-01 | ⮽ |
 | TC-02 | ⮽ |
-| TC-03 | ⮽ |
+| TC-03 | ☐ |
 | TC-04 | ⮽ |
 | TC-05 | ⮽ |
 | TC-06 | ⮽ |
 
-**Bestandene Tests:** 6 / 6
+**Bestandene Tests:** 5 / 6
