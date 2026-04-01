@@ -76,7 +76,7 @@ if (!bGröße || größe < 0)
 // TODO: BMI berechnen und in einer Variablen speichern
 double bmi = gewicht / (größe * größe);
 
-
+ 
 // ── Schritt 6: Kategorie bestimmen ───────────────────────────
 // TODO: Erstelle eine string-Variable "kategorie"
 // TODO: Bestimme die Kategorie über eine if-else-if-Kette:

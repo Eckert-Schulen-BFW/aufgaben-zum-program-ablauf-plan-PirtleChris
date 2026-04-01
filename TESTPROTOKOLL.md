@@ -126,5 +126,5 @@ Führe alle Testfälle aus und notiere die tatsächliche Ausgabe deines Programm
 | TC-04 | ⮽ |
 | TC-05 | ⮽ |
 | TC-06 | ⮽ |
-
+ 
 **Bestandene Tests:** 5 / 6
