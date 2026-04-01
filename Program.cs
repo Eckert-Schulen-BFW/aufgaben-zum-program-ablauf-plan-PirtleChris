@@ -1,8 +1,8 @@
 ﻿// ============================================================
 //  Aufgabe: Programmablaufplan – BMI-Rechner
 //  Fach:    C# Grundlagen
-//  Name:    [DEIN NAME HIER]
-//  Datum:   [DATUM HIER]
+//  Name:    [Pirtle Christopher]
+//  Datum:   [01.04.2026]
 // ============================================================
 //
 // AUFGABE 1 – Beantworte folgende Fragen hier als Kommentar:
@@ -49,7 +49,7 @@ double gewicht;
 bool bGewicht = double.TryParse(Console.ReadLine(), out gewicht);
 if (!bGewicht)
 {
-    Console.WriteLine("Eingabe Falsch!");
+    Console.WriteLine("Fehlermeldung, Programm endet");
     Console.ReadKey();
     return;
 }
@@ -66,7 +66,7 @@ double größe;
 bool bGröße = double.TryParse(Console.ReadLine(),out größe);
 if (!bGröße || größe < 0)
 {
-    Console.WriteLine("Eingabe Falsch!");
+    Console.WriteLine("Fehlermeldung (Größe ungültig), Programm endet");
     Console.ReadKey();
     return;
 }
@@ -88,17 +88,17 @@ double bmi = gewicht / (größe * größe);
 // 💭 Denkfrage: Warum reicht bei "Normalgewicht" die Bedingung BMI < 25.0 aus,
 //               obwohl laut WHO-Tabelle auch BMI >= 18.5 gelten muss?
 string kategorie;
-if(bmi < 30.0)
+if(bmi < 18.5)
 {
-    kategorie = "Übergewicht";
+    kategorie = "Untergewicht";
 }
 else if (bmi < 25.0)
 {
     kategorie = "Normalgewicht";
 }
-else if (bmi < 18.5)
+else if (bmi < 30)
 {
-    kategorie = "Untergewicht";
+    kategorie = "Übergewicht";
 }
 else
 {
